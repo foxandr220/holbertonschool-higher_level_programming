@@ -24,8 +24,7 @@ class BaseGeometry:
             TypeError: If value is not an integer
             ValueError: If value is less or equal to 0
         """
-        # Разрешаем bool как подкласс int
-        if not isinstance(value, int) or isinstance(value, bool) and value is not True and value is not False:
+        if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
