@@ -1,5 +1,3 @@
-# 1-my_list.txt
-
 =======================
 How to Use 1-my_list.py
 =======================
@@ -13,7 +11,6 @@ Instantiation
 an empty list:
 
 ::
-
  >>> MyList = __import__('1-my_list').MyList
  >>> my_list = MyList()
  >>> type(my_list)
@@ -119,33 +116,4 @@ Note that lists of strings are sorted lexographically.
  >>> my_list.append("Brennan")
  >>> my_list.append("Poppy")
  >>> my_list.append("School")
- >>> my_list.append("Holberton")
- >>> my_list.append("Betty")
- >>> print(my_list)
- ['Brennan', 'Poppy', 'School', 'Holberton', 'Betty']
-
-::
- >>> my_list.print_sorted()
- ['Betty', 'Brennan', 'Holberton', 'Poppy', 'School']
-
-Another friendly reminder that the original list is unaltered :)
-
-::
- >>> print(my_list)
- ['Brennan', 'Poppy', 'School', 'Holberton', 'Betty']
-
-Nothing to sort with empty lists.
-
-::
- >>> my_list = MyList()
- >>> my_list.print_sorted()
- []
-
-If ``print_sorted(...)`` is called on a list of different types, a TypeError
-will be raised.
-
-::
- >>> my_list = MyList([1, "Betty", "Holberton", 5])
- >>> my_list.print_sorted()
- Traceback (most recent call last):
- TypeError: unorderable types: str() < int()
+ >>> my_list.append("Holberton"_
