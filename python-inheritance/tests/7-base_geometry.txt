@@ -1,0 +1,25 @@
+Test 1: Valid integers
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("width", 5)
+>>> bg.integer_validator("height", 10)
+
+Test 2: String value
+>>> bg.integer_validator("name", "test")
+TypeError: name must be an integer
+
+Test 3: Zero value
+>>> bg.integer_validator("age", 0)
+ValueError: age must be greater than 0
+
+Test 4: Negative value
+>>> bg.integer_validator("distance", -5)
+ValueError: distance must be greater than 0
+
+Test 5: Float value
+>>> bg.integer_validator("size", 5.5)
+TypeError: size must be an integer
+
+Test 6: Boolean value
+>>> bg.integer_validator("flag", True)
+TypeError: flag must be an integer
