@@ -1,58 +1,60 @@
-Test basic integer validation
+Test basic functionality
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
+
+Test area method
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+Test integer validator with correct values
 >>> bg.integer_validator("width", 5)
 >>> bg.integer_validator("height", 10)
 
-Test string value
->>> bg.integer_validator("name", "test")
+Test integer validator with string
+>>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
 ...
 TypeError: name must be an integer
 
-Test zero value
+Test integer validator with zero
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
 
-Test negative value
->>> bg.integer_validator("distance", -5)
+Test integer validator with negative
+>>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
 ...
 ValueError: distance must be greater than 0
 
-Test float value
->>> bg.integer_validator("size", 5.5)
+Test integer validator with float
+>>> bg.integer_validator("size", 4.5)
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
 
-Test boolean True
->>> bg.integer_validator("flag", True)
-Traceback (most recent call last):
-...
-TypeError: flag must be an integer
-
-Test boolean False
->>> bg.integer_validator("flag", False)
-Traceback (most recent call last):
-...
-TypeError: flag must be an integer
-
-Test tuple
+Test integer validator with tuple
 >>> bg.integer_validator("age", (4,))
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-Test list
+Test integer validator with list
 >>> bg.integer_validator("age", [3])
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-Test None
+Test integer validator with boolean
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Test integer validator with None
 >>> bg.integer_validator("age", None)
 Traceback (most recent call last):
 ...
