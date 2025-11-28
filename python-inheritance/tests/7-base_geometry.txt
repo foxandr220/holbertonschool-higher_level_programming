@@ -1,51 +1,73 @@
-=== Test 1: Valid integers ===
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-bg = BaseGeometry()
-bg.integer_validator("my_int", 12)
-bg.integer_validator("width", 89)
-print("OK")
+Test 1: Basic functionality
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
 
-=== Test 2: String value ===
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-bg = BaseGeometry()
-try:
-    bg.integer_validator("name", "John")
-    print("FAIL")
-except TypeError as e:
-    print("OK" if str(e) == "name must be an integer" else "FAIL")
+Test 2: Area method exception
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
 
-=== Test 3: Zero value ===
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-bg = BaseGeometry()
-try:
-    bg.integer_validator("age", 0)
-    print("FAIL")
-except ValueError as e:
-    print("OK" if str(e) == "age must be greater than 0" else "FAIL")
+Test 3: Valid integer validation
+>>> bg.integer_validator("width", 5)
+>>> bg.integer_validator("height", 10)
 
-=== Test 4: Negative value ===
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-bg = BaseGeometry()
-try:
-    bg.integer_validator("distance", -4)
-    print("FAIL")
-except ValueError as e:
-    print("OK" if str(e) == "distance must be greater than 0" else "FAIL")
+Test 4: String value
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
 
-=== Test 5: Area method ===
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-bg = BaseGeometry()
-try:
-    bg.area()
-    print("FAIL")
-except Exception as e:
-    print("OK" if str(e) == "area() is not implemented" else "FAIL")
+Test 5: Zero value
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
 
-=== Test 6: Float value ===
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-bg = BaseGeometry()
-try:
-    bg.integer_validator("height", 5.5)
-    print("FAIL")
-except TypeError as e:
-    print("OK" if str(e) == "height must be an integer" else "FAIL")
+Test 6: Negative value
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
+
+Test 7: Missing value argument
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Test 8: Float value
+>>> bg.integer_validator("size", 4.5)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+Test 9: Tuple value
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Test 10: List value
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Test 11: Boolean True value
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Test 12: Multiple elements tuple
+>>> bg.integer_validator("age", (3, 4))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Test 13: None value
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
