@@ -1,60 +1,64 @@
-Test basic functionality
+Test 1: Basic instantiation and area
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
-
-Test area method
 >>> bg.area()
 Traceback (most recent call last):
 ...
 Exception: area() is not implemented
 
-Test integer validator with correct values
+Test 2: Valid integer validation
 >>> bg.integer_validator("width", 5)
 >>> bg.integer_validator("height", 10)
 
-Test integer validator with string
+Test 3: String value
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
 ...
 TypeError: name must be an integer
 
-Test integer validator with zero
+Test 4: Zero value
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
 
-Test integer validator with negative
+Test 5: Negative value
 >>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
 ...
 ValueError: distance must be greater than 0
 
-Test integer validator with float
+Test 6: Float value
 >>> bg.integer_validator("size", 4.5)
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
 
-Test integer validator with tuple
+Test 7: Tuple value
 >>> bg.integer_validator("age", (4,))
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-Test integer validator with list
+Test 8: List value
 >>> bg.integer_validator("age", [3])
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-Test integer validator with boolean
+Test 9: Boolean True value
 >>> bg.integer_validator("age", True)
 Traceback (most recent call last):
 ...
 TypeError: age must be an integer
 
-Test integer validator with None
+Test 10: Multiple elements tuple
+>>> bg.integer_validator("age", (3, 4))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Test 11: None value
 >>> bg.integer_validator("age", None)
 Traceback (most recent call last):
 ...
