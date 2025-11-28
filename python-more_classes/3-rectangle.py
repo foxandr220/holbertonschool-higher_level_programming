@@ -55,11 +55,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        result = []
+        lines = []
         for _ in range(self.__height):
-            result.append("#" * self.__width)
-        return "\n".join(result)
-
-    def __repr__(self):
-        """Return a string that can recreate the rectangle."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+            lines.append("#" * self.__width)
+        return "\n".join(lines)
