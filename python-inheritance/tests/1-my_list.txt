@@ -1,4 +1,4 @@
-Test 1: Basic functionality
+Test 1: Basic sorted functionality
 >>> MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
 >>> my_list.append(1)
@@ -18,10 +18,31 @@ Test 2: Empty list
 >>> my_list2.print_sorted()
 []
 
-Test 3: Already sorted
+Test 3: Already sorted list
 >>> my_list3 = MyList()
 >>> my_list3.append(1)
 >>> my_list3.append(2)
 >>> my_list3.append(3)
 >>> my_list3.print_sorted()
 [1, 2, 3]
+
+Test 4: List with negative numbers
+>>> my_list4 = MyList()
+>>> my_list4.append(3)
+>>> my_list4.append(-1)
+>>> my_list4.append(5)
+>>> my_list4.append(-2)
+>>> my_list4.print_sorted()
+[-2, -1, 3, 5]
+
+Test 5: Single element
+>>> my_list5 = MyList()
+>>> my_list5.append(42)
+>>> my_list5.print_sorted()
+[42]
+
+Test 6: Verify inheritance
+>>> isinstance(MyList(), list)
+True
+>>> issubclass(MyList, list)
+True
