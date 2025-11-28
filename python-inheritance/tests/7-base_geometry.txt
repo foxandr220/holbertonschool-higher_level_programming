@@ -1,0 +1,51 @@
+=== Test 1: Valid integers ===
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+bg = BaseGeometry()
+bg.integer_validator("my_int", 12)
+bg.integer_validator("width", 89)
+print("OK")
+
+=== Test 2: String value ===
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+bg = BaseGeometry()
+try:
+    bg.integer_validator("name", "John")
+    print("FAIL")
+except TypeError as e:
+    print("OK" if str(e) == "name must be an integer" else "FAIL")
+
+=== Test 3: Zero value ===
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+bg = BaseGeometry()
+try:
+    bg.integer_validator("age", 0)
+    print("FAIL")
+except ValueError as e:
+    print("OK" if str(e) == "age must be greater than 0" else "FAIL")
+
+=== Test 4: Negative value ===
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+bg = BaseGeometry()
+try:
+    bg.integer_validator("distance", -4)
+    print("FAIL")
+except ValueError as e:
+    print("OK" if str(e) == "distance must be greater than 0" else "FAIL")
+
+=== Test 5: Area method ===
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+bg = BaseGeometry()
+try:
+    bg.area()
+    print("FAIL")
+except Exception as e:
+    print("OK" if str(e) == "area() is not implemented" else "FAIL")
+
+=== Test 6: Float value ===
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+bg = BaseGeometry()
+try:
+    bg.integer_validator("height", 5.5)
+    print("FAIL")
+except TypeError as e:
+    print("OK" if str(e) == "height must be an integer" else "FAIL")
