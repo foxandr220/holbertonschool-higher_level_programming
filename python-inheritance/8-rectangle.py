@@ -9,7 +9,7 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """Initialize Rectangle with width and height
-        
+
         Args:
             width (int): The width of the rectangle
             height (int): The height of the rectangle
