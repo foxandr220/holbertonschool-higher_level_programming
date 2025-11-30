@@ -1,3 +1,4 @@
+  GNU nano 6.2                                                                                                                7-add_item.py                                                                                                                         
 #!/usr/bin/python3
 """
 Script that adds all arguments to a Python list and saves them to a file.
